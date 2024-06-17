@@ -1,32 +1,129 @@
-
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-<title>奈亚子的测试网站</title>
-
-<style>
-
-.custom-font {
-
-font-family: "Arial", sans-serif;
-   font-size: 26px
-   text-align: center
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px 0;
+            border-bottom: 1px dotted #e8491d;
+        }
+        article {
+            padding: 20px 0;
+            width: 70%;
+            float: left;
+        }
+        aside {
+            width: 30%;
+            float: right;
+        }
+        .jumbotron {
+            padding: 30px 0;
+            background: #e8491d;
+            color: white;
+        }
+        footer {
+            padding: 20px 0;
+            background-color: #50b3a2;
+            color: ;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>个人主页</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<p class="custom-font">测试灯箱片烧了</p>
-  <p class="custom-font">hello 韩玮祎</p>
-  <p class="custom-font">by 奈亚子</p>
-   <img src="/4085b906a86a17040a3516bea1f14505.jpg" alt="Image Description" width="400" height="500">
+    <section class="jumbotron">
+        <div class="container">
+            <h1>你好，我是许博文</h1>
+            <p>这是一个个人主页</p>
+        </div>
+    </section>
 
+    <section class="about" id="about">
+        <div class="container">
+            <article>
+                <h2>关于我</h2>
+                <p> </p>
+            </article>
+            <aside>
+                <h2>联系方式</h2>
+                <p>邮箱：1535071184@qq.com</p>
+                <p>电话：13696767539</p>
+            </aside>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 许博文的个人主页</p>
+    </footer>
 </body>
-
 </html>
