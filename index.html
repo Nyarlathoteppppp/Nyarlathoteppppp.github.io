@@ -3,164 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的技术主页</title>
+    <title>校园物品交易平台项目计划</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #333;
             background-color: #f4f4f4;
         }
-      
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: url('backgroud.jpg') no-repeat center center;
-            background-size: cover;
-            filter: blur(10px);
-            -webkit-filter: blur(10px);
-        }
         .container {
-            max-width: 900px;
-            margin: 20px auto;
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        header h1 {
-            font-size: 3em;
-            color: #3498db;
-        }
-        .avatar {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .avatar img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 4px solid #3498db;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        nav {
-            margin-top: 20px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #3498db;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #2980b9;
-        }
-        section {
-            margin: 40px 0;
-        }
-        section h2 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            color: #3498db;
-        }
-        section p, section ul {
+        h1, h2, h3 {
             color: #333;
         }
-        section ul {
-            list-style: none;
+        ul {
+            list-style-type: none;
             padding: 0;
         }
-        section ul li {
-            background: #f9f9f9;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+        ul li {
+            padding: 5px 0;
         }
-        section ul li:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #3498db;
-            color: #ffffff;
-            width: 100%;
+        .contact {
+            margin-top: 20px;
         }
         a {
             color: #3498db;
-            transition: color 0.3s;
+            text-decoration: none;
         }
         a:hover {
-            color: #2980b9;
-        }
-        .code-bg {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .code-bg pre {
-            color: #3498db;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
     <div class="container">
-        <header>
-            <h1>许博文</h1>
-            <div class="avatar">
-                <img src="avatar.jpg" alt="头像">
-            </div>
-            <nav>
-                <a href="#about">关于我</a>
-                <a href="#projects">资料</a>
-                <a href="#contact">联系我</a>
-            </nav>
-        </header>
+        <h1>校园物品交易平台项目计划</h1>
 
-        <section id="about">
-            <h2>关于我</h2>
-            <p>许博文以上</p>
-        </section>
+        <h2>项目概述</h2>
+        <ul>
+            <li><strong>项目名称</strong>: 校园物品交易平台</li>
+            <li><strong>项目周期</strong>: 2024年9月22日 - 2024年12月12日</li>
+            <li><strong>团队规模</strong>: 3-4人</li>
+            <li><strong>技术栈</strong>: Vue2 + Element UI (前端), Spring Boot (后端), MySQL (数据库)</li>
+        </ul>
 
-        <section id="projects">
-            <h2>项目</h2>
-            <ul>
-                <li class="code-bg"><strong>学校</strong> - 澳门科技大学</li>
-                <li class="code-bg"><strong>年龄</strong> - 2003出生</li>
-                <li class="code-bg"><strong>种族</strong> - 外神</li>
-            </ul>
-        </section>
+        <h2>项目时间规划</h2>
+        <h3>1. 需求分析与设计 (2024年9月22日 - 2024年10月6日)</h3>
+        <ul>
+            <li>确定项目需求与核心功能</li>
+            <li>制定系统架构与数据库设计</li>
+        </ul>
 
-        <section id="contact">
-            <h2>联系方式</h2>
-            <p>以下：</p>
-            <ul>
-                <li>Email: <a href="1535071184@qq.com">1535071184@qq.com</a></li>
-                <li>GitHub: <a href="https://github.com/Nyarlathoteppppp" target="_blank">Nyarlathoteppppp</a></li>
-            </ul>
-        </section>
+        <h3>2. 前端开发 (2024年10月7日 - 2024年10月27日)</h3>
+        <ul>
+            <li>用户界面设计与开发</li>
+            <li>主要功能实现：物品发布、搜索等</li>
+        </ul>
 
-        <footer>
-            <p>&copy; 2024 [Nyarlathoteppppp]. 保留所有权利。</p>
-        </footer>
+        <h3>3. 后端开发 (2024年10月28日 - 2024年11月17日)</h3>
+        <ul>
+            <li>完成用户管理、物品管理、交易匹配等后端功能</li>
+            <li>前后端API对接与调试</li>
+        </ul>
+
+        <h3>4. 系统集成与测试 (2024年11月18日 - 2024年12月1日)</h3>
+        <ul>
+            <li>前后端集成，进行全面测试</li>
+            <li>收集用户反馈并优化系统</li>
+        </ul>
+
+        <h3>5. 项目优化与文档撰写 (2024年12月2日 - 2024年12月12日)</h3>
+        <ul>
+            <li>修复BUG，提升系统性能</li>
+            <li>完成项目文档与用户手册编写</li>
+            <li>项目上线与准备展示</li>
+        </ul>
+
+        <h2>团队分工</h2>
+        <ul>
+            <li><strong>团队负责人</strong>: 管理项目进度，协调开发与沟通</li>
+            <li><strong>前端开发</strong>: 实现用户界面和交互</li>
+            <li><strong>后端开发</strong>: 构建服务器和数据库交互逻辑</li>
+            <li><strong>测试与优化</strong>: 负责功能测试和性能优化</li>
+        </ul>
+
+        <h2>项目目标</h2>
+        <p>提供一个简洁高效的校园物品交易平台，优化用户体验，减少手动操作，提高交易效率。</p>
+
+        <div class="contact">
+            <h3>联系我们</h3>
+            <p>项目网站: <a href="#">GitHub项目地址</a></p>
+        </div>
     </div>
 </body>
 </html>
