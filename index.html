@@ -1,102 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>校园物品交易平台项目计划</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            padding: 5px 0;
-        }
-        .contact {
-            margin-top: 20px;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>松养｜松阳目的地营销</title>
+  <meta name="description" content="松养：自然秘境 × 疗愈体验。三重生长·四季主题·产品矩阵·共生剧场。" />
+  <style>
+    /* ===== 基础变量 & 全局样式 ===== */
+    :root{
+      --bg:#ffffff;
+      --fg:#1b1f23;
+      --muted:#6b7280;
+      --brand:#1f8a70; /* 主绿色 */
+      --brand-2:#f1f8f5; /* 浅绿背景 */
+      --accent:#ffc857; /* 暖黄色点缀 */
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --radius:14px;
+      --shadow:0 6px 24px rgba(0,0,0,.06);
+      --max:1140px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1116;
+        --fg:#e5e7eb;
+        --muted:#9aa0a6;
+        --brand:#66d4b3;
+        --brand-2:#0f1a16;
+        --accent:#ffd36e;
+        --card:#12161d;
+        --border:#222a35;
+        --shadow:0 6px 24px rgba(0,0,0,.45);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    img{max-width:100%;display:block;border-radius:12px}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .section{padding:72px 0}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:13px;margin-right:8px;background:transparent}
+    .chip{display:inline-block;background:var(--brand-2);color:var(--brand);padding:6px 10px;border-radius:999px;font-size:13px;margin:4px 8px 0 0}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .btn.alt{background:var(--accent);color:#1b1f23}
+    .grid{display:grid;gap:20px}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .kicker{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+    h1{font-size:40px;line-height:1.15;margin:14px 0 18px}
+    h2{font-size:28px;margin:0 0 18px}
+    h3{font-size:18px;margin:0 0 10px}
+    /* 顶部导航 */
+    .nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:10}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{width:28px;height:28px;border-radius:8px;background:var(--brand);box-shadow:inset 0 0 0 3px #fff}
+    .nav a{margin-left:18px;color:var(--fg)}
+    /* 英雄区（全屏背景 + 居中头像） */
+    .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0;background:#000;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.45) 100%),url('https://raw.githubusercontent.com/Yamih1108/songyang-site/main/15041757672029_.pic_hd.jpg');background-size:cover;background-position:center;filter:saturate(110%)}
+    .hero .hero-inner{position:relative;z-index:1;color:#fff;padding:96px 20px 56px}
+    .hero .lead{font-size:18px;color:#e9edf1;max-width:760px;margin:12px auto 0}
+    .hero .cta{margin-top:22px}
+    .avatar{width:132px;height:132px;border-radius:999px;overflow:hidden;margin:0 auto 12px;border:4px solid rgba(255,255,255,.85);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .socials{display:flex;gap:14px;justify-content:center;margin-top:18px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:var(--shadow)}
+    .socials svg{width:20px;height:20px;fill:#111}
+    /* 徽章带 */
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    /* 分区装饰标题条 */
+    .bar{height:4px;width:56px;background:var(--brand);border-radius:3px;margin-bottom:14px}
+    /* 列表 */
+    .list{padding-left:18px}
+    .list li{margin:6px 0}
+    /* 页脚 */
+    footer{padding:40px 0;border-top:1px solid var(--border);color:var(--muted)}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>校园物品交易平台项目计划</h1>
-
-        <h2>项目概述</h2>
-        <ul>
-            <li><strong>项目名称</strong>: 校园物品交易平台</li>
-            <li><strong>项目周期</strong>: 2024年9月22日 - 2024年12月12日</li>
-            <li><strong>团队规模</strong>: 3-4人</li>
-            <li><strong>技术栈</strong>: Vue2 + Element UI (前端), Spring Boot (后端), MySQL (数据库)</li>
-        </ul>
-
-        <h2>项目时间规划</h2>
-        <h3>1. 需求分析与设计 (2024年9月22日 - 2024年10月6日)</h3>
-        <ul>
-            <li>确定项目需求与核心功能</li>
-            <li>制定系统架构与数据库设计</li>
-        </ul>
-
-        <h3>2. 前端开发 (2024年10月7日 - 2024年10月27日)</h3>
-        <ul>
-            <li>用户界面设计与开发</li>
-            <li>主要功能实现：物品发布、搜索等</li>
-        </ul>
-
-        <h3>3. 后端开发 (2024年10月28日 - 2024年11月17日)</h3>
-        <ul>
-            <li>完成用户管理、物品管理、交易匹配等后端功能</li>
-            <li>前后端API对接与调试</li>
-        </ul>
-
-        <h3>4. 系统集成与测试 (2024年11月18日 - 2024年12月1日)</h3>
-        <ul>
-            <li>前后端集成，进行全面测试</li>
-            <li>收集用户反馈并优化系统</li>
-        </ul>
-
-        <h3>5. 项目优化与文档撰写 (2024年12月2日 - 2024年12月12日)</h3>
-        <ul>
-            <li>修复BUG，提升系统性能</li>
-            <li>完成项目文档与用户手册编写</li>
-            <li>项目上线与准备展示</li>
-        </ul>
-
-        <h2>团队分工</h2>
-        <ul>
-            <li><strong>团队负责人</strong>: 管理项目进度，协调开发与沟通</li>
-            <li><strong>前端开发</strong>: 实现用户界面和交互</li>
-            <li><strong>后端开发</strong>: 构建服务器和数据库交互逻辑</li>
-            <li><strong>测试与优化</strong>: 负责功能测试和性能优化</li>
-        </ul>
-
-        <h2>项目目标</h2>
-        <p>提供一个简洁高效的校园物品交易平台，优化用户体验，减少手动操作，提高交易效率。</p>
-
-       
+  <!-- 顶部导航 -->
+  <header class="nav">
+    <div class="container nav-inner" style="backdrop-filter:saturate(120%) blur(6px);">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>松养 • Songyang</span>
+      </div>
+      <nav aria-label="主导航">
+        <a href=" ">品牌愿景</a >
+        <a href="#growth">三重生长</a >
+        <a href="#matrix">产品矩阵</a >
+        <a href="#seasons">四季主题</a >
+        <a href="#calendar">活动日历</a >
+        <a href="#contact">联系</a >
+      </nav>
     </div>
+  </header>
+
+  <!-- 英雄区（修复损坏的 style 和未闭合 span） -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="avatar">
+        < img src="https://raw.githubusercontent.com/Yamih1108/songyang-site1/main/15101757674624_.pic_hd.jpg" alt="松养 logo" />
+      </div>
+      <h1>松养：<span>松阳四时褶皱计划</span></h1>
+      <p class="lead">从茶烟醒山到围炉问禅的秘境体验疗愈年鉴</p >
+      <div class="cta">
+        <a class="btn" href="#contact">Get in touch</a >
+      </div>
+      <div class="socials" aria-label="社交链接">
+        <a href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.33-1.79-1.33-1.79-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.31-5.48-1.33-5.48-5.91 0-1.31.47-2.38 1.23-3.22-.12-.31-.53-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.69.24 2.94.12 3.25.76.84 1.23 1.91 1.23 3.22 0 4.59-2.81 5.59-5.49 5.9.43.37.81 1.1.81 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+        </a >
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.27 4.27 0 0 0 1.87-2.36 8.57 8.57 0 0 1-2.71 1.04 4.26 4.26 0 0 0-7.26 3.89A12.08 12.08 0 0 1 3.15 4.9a4.25 4.25 0 0 0 1.32 5.68c-.64-.02-1.25-.2-1.78-.49a4.26 4.26 0 0 0 3.42 4.22c-.55.15-1.14.18-1.72.07a4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54a12.07 12.07 0 0 0 6.53 1.91c7.84 0 12.13-6.5 12.13-12.13 0-.18 0-.36-.01-.53A8.66 8.66 0 0 0 24 6.5a8.5 8.5 0 0 1-2.54.7z"/></svg>
+        </a >
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+        </a >
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.64h.05A4.16 4.16 0 0 1 17.5 9c4.03 0 4.77 2.65 4.77 6.1V21H18v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.58V21H9z"/></svg>
+        </a >
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌愿景 -->
+  <section id="vision" class="section">
+    <div class="container grid grid-2">
+      <div>
+        <div class="bar"></div>
+        <h2>品牌锚点</h2>
+        <p class="muted">“松养”取自“松阳”之音，凝练自然与人文的双重滋养，打造可延展的目的地品牌矩阵。</p >
+        <ul class="list">
+          <li><strong>定位：</strong>自然秘境 × 疗愈目的地</li>
+          <li><strong>“松阳生长徽章”体系：</strong>自然徽章、文化徽章、社区徽章</li>
+          <li><strong>“产业联动”：</strong>老屋拯救×民宿孵化×茶叶深加工——三环共振</li>
+        </ul>
+      </div>
+      <div class="card">
+        < img src="https://raw.githubusercontent.com/Yamih1108/songyang-site2/main/15111757676172_.pic_hd.jpg" alt="主视觉占位：茶园、云雾梯田、古村屋顶" />
+        <p class="muted" style="margin-top:10px">茶园、云雾梯田、古村屋顶</p >
+      </div>
+    </div>
+  </section>
+
+  <!-- 三重生长 -->
+  <section id="growth" class="section" style="background:var(--brand-2)">
+    <div class="container">
+      <div class="bar"></div>
+      <h2>三重生长</h2>
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="card">
+          <h3>自然生长</h3>
+          <p class="muted">云雾梯田、万亩茶园、高海拔古村落，形成清凉微气候与疗愈景观。</p >
+        </div>
+        <div class="card">
+          <h3>文化生长</h3>
+          <p class="muted">非遗工坊、契约文化、红色记忆，深度参与式体验。</p >
+        </div>
+        <div class="card">
+          <h3>社区生长</h3>
+          <p class="muted">老屋共建、民宿社群、共创关系，推动在地可持续。</p >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品矩阵 -->
+  <section id="matrix" class="section">
+    <div class="container">
+      <div class="bar"></div>
+      <h2>松养 · 产品矩阵</h2>
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="card">
+          <h3>松养·茶</h3>
+          <p class="muted">茶园冥想、茶膳、采茶体验与茶居早餐。</p >
+        </div>
+        <div class="card">
+          <h3>松养·居</h3>
+          <p class="muted">古村民宿、围炉夜话、石板冷泉自然控温起居。</p >
+        </div>
+        <div class="card">
+          <h3>松养·行</h3>
+          <p class="muted">绿道骑行、古道徒步、夜观星空。</p >
+        </div>
+        <div class="card">
+          <h3>松养·学</h3>
+          <p class="muted">非遗工坊、契约文化课堂、乡土手艺。</p >
+        </div>
+        <div class="card">
+          <h3>松养·礼</h3>
+          <p class="muted">节令市集、送灯仪式、在地礼物。</p >
+        </div>
+        <div class="card">
+          <h3>松养·徽</h3>
+          <p class="muted">生长徽章体系（badge system），记录你的在地体验成就。</p >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四季主题（四卡片定稿） -->
+  <section id="seasons" class="section" style="background:var(--brand-2)">
+    <div class="container">
+      <div class="bar"></div>
+      <h2>四季主题</h2>
+
+      <div class="grid grid-2" style="margin-top:14px">
+
+        <!-- 春季 -->
+        <div class="card">
+          <h3>春季｜春漫松阳·愈其内心</h3>
+          <ul class="list">
+            <li><strong>万亩茶园·生态体验：</strong>大木山茶园春茶采摘与制茶；骑行茶海绿道；茶点品鉴与茶艺研习。</li>
+            <li><strong>垄畦稻田·花海织锦：</strong>杨家堂古村油菜花梯田；农耕牛耕体验；桃木雕刻非遗参观。</li>
+            <li><strong>古村街巷·文化走读：</strong>明清古街与松阳高腔；清明果制作；契约馆与在地博物馆参观。</li>
+          </ul>
+          <p class="muted">春日松阳主打茶园生态、稻田花海与古村文化，强调复苏与疗愈氛围。</p >
+        </div>
+
+        <!-- 夏季 -->
+        <div class="card">
+          <h3>夏季｜松阳沁夏·秘境枕星</h3>
+          <ul class="list">
+            <li><strong>古村秘境·静谧避暑：</strong>酉田村、陈家铺；石板冷泉循环民宿；大木山茶园茶居。</li>
+            <li><strong>茶园清晨·星野夜宿：</strong>茶田早餐、采茶体验、星空露营。</li>
+            <li><strong>绿色动线：</strong>绿道骑行 × 古道徒步。</li>
+          </ul>
+          <p class="muted">夏日主打清凉避暑与星空露营，强调夜间氛围感。</p >
+        </div>
+
+        <!-- 秋季 -->
+        <div class="card">
+          <h3>秋季｜稻浪松阳·金色秘境</h3>
+          <ul class="list">
+            <li><strong>稻浪梯田·古村落日：</strong>杨家堂金色梯田；古村走读；夕阳摄影。</li>
+            <li><strong>秋夜灯火·街巷美食：</strong>松阳古街；夜灯氛围；煨盐鸡与在地小吃。</li>
+            <li><strong>自然动线：</strong>短线骑行 × 箬寮原始林探访。</li>
+          </ul>
+          <p class="muted">秋季突出金色收获氛围，结合古街烟火与村落光影。</p >
+        </div>
+
+        <!-- 冬季 -->
+        <div class="card">
+          <h3>冬季｜围炉松阳·云海温汤</h3>
+          <ul class="list">
+            <li><strong>清晨云海·林间漫步：</strong>七星墩观景台；林间湿润空气；冬日晨走。</li>
+            <li><strong>手作与围炉：</strong>午后非遗作坊；围炉煮茶；古村夜行。</li>
+            <li><strong>暖汤夜宿：</strong>四都乡汤屋；茶园温汤；夜宿保暖疗愈。</li>
+          </ul>
+          <p class="muted">冬季主打“无雪版”温暖叙事：云海雾气、围炉夜话、温汤夜宿。</p >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 活动日历 -->
+  <section id="calendar" class="section">
+    <div class="container">
+      <div class="bar"></div>
+      <h2>活动日历</h2>
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="card">
+          <h3>3-5月｜春季专题</h3>
+          <p class="muted">茶芽初绽·花海织锦·古村走读。</p >
+        </div>
+        <div class="card">
+          <h3>6–8月｜夏季专题</h3>
+          <p class="muted">古村清凉住留 · 星野露营 · 茶园早餐周。</p >
+        </div>
+        <div class="card">
+          <h3>9–10月｜秋收专题</h3>
+          <p class="muted">稻浪市集 · 送灯仪式 · 采摘体验。</p >
+        </div>
+        <div class="card">
+          <h3>11–2月｜冬养专题</h3>
+          <p class="muted">围炉夜话 · 温汤线路 · 新岁祈愿。</p >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 图集 -->
+  <section class="section" style="background:var(--brand-2)">
+    <div class="container">
+      <div class="bar"></div>
+      <h2>图集</h2>
+    <div class="grid grid-3" style="margin-top:14px">
+        <div class="card">< img src="" alt="茶园晨雾"><p class="muted"></p ></div>
+        <div class="card">< img src="" alt="古村屋顶"><p class="muted"></p ></div>
+        <div class="card">< img src="" alt="星空夜宿"><p class="muted"></p ></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section id="contact" class="section">
+    <div class="container grid grid-2">
+      <div>
+        <div class="bar"></div>
+        <h2>联系与合作</h2>
+        <p class="muted">欢迎媒体、品牌与在地伙伴联系共创。</p >
+        <ul class="list">
+          <li>邮箱：3115344487@qq.com</li>
+          <li>电话：+86-17775351532</li>
+          <li>地址：天津市北辰区天津商业大学管理学院</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>下载资料</h3>
+        <ul class="list">
+          <li><a href="#">松养品牌手册.pdf</a ></li>
+          <li><a href="#">四季主题海报.zip</a ></li>
+          <li><a href="#">活动运营日历.xlsx</a ></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="kicker">Songyang • 松养</div>
+      <div style="margin-top:6px">© 2025 松养项目 · 目的地品牌与文化体验。保留所有权利。</div>
+    </div>
+  </footer>
 </body>
 </html>
